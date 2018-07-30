@@ -13,4 +13,20 @@ class Gym
     ALL
   end
 
+  def all_lifters
+    many_lifters = Membership.all.select {|membership| membership.gym == self}
+    many_lifters.map {|membership| membership.lifter}
+  end
+
+  def lifters_by_name
+    all_lifters.map {|lifter| lifter.name}
+  end
+
+  def lift_totals
+    totals = all_lifters.map {|lifter| lifter.lift_total}
+    sum = 0
+    totals.each do {|sum, lift_total| sum + lift_total}
+  end
+
+
 end

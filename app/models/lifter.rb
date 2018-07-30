@@ -31,6 +31,11 @@ class Lifter
     new_membership = Membership.new(cost, self, gym)
   end
 
+  def self.average
+    all_lift_totals = @@all.map {|lifter| lifter.lift_total}
+    all_lift_totals.inject(0) {|sum, el| sum + el} / all_lift_totals.size
+  end
+
 
 
 

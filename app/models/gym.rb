@@ -24,8 +24,7 @@ class Gym
 
   def lift_totals
     totals = all_lifters.map {|lifter| lifter.lift_total}
-    sum = 0
-    totals.each do {|sum, lift_total| sum + lift_total}
+    totals.inject(0) {|sum, el| sum + el}
   end
 
 
